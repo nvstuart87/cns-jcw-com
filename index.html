@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩网 - 站点介绍与可信说明</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f2f4f7;
+            color: #2c3e50;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* 顶部导航 */
+        .nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e1e5ea;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            color: #1e3a5f;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #3a546d;
+            font-size: 0.95rem;
+            font-weight: 450;
+            transition: color 0.2s;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-links a:hover {
+            color: #1f6390;
+            border-bottom-color: #1f6390;
+        }
+
+        /* hero 区域 */
+        .hero {
+            padding: 72px 0 56px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1c3a5a;
+            margin-bottom: 16px;
+            letter-spacing: -0.2px;
+        }
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 24px;
+            font-size: 1.07rem;
+            color: #3d5a73;
+            background: #ffffffd9;
+            padding: 14px 28px;
+            border-radius: 40px;
+            border: 1px solid #dde3e9;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            backdrop-filter: blur(2px);
+        }
+        .hero-tag {
+            display: inline-block;
+            background: #eef2f7;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #2d4d6a;
+            border: 1px solid #d0d9e3;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            border: 1px solid #e4e9ef;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.02);
+            padding: 32px 30px;
+            margin-bottom: 30px;
+            transition: box-shadow 0.15s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 550;
+            color: #1a3854;
+            margin-bottom: 18px;
+            border-left: 4px solid #7094b0;
+            padding-left: 14px;
+        }
+        .card p, .card li {
+            font-size: 0.98rem;
+            color: #2e4a63;
+        }
+        .card ul {
+            padding-left: 20px;
+            list-style: disc;
+        }
+        .card li {
+            margin-bottom: 8px;
+        }
+
+        /* 场景三模块网格 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin: 36px 0 18px;
+        }
+        .scene-item {
+            background: #ffffff;
+            border-radius: 18px;
+            border: 1px solid #e4e9ef;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            padding: 26px 20px 22px;
+            transition: transform 0.1s, box-shadow 0.2s;
+        }
+        .scene-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.04);
+        }
+        .scene-item h3 {
+            font-size: 1.1rem;
+            font-weight: 570;
+            color: #1e3f5c;
+            margin-bottom: 10px;
+        }
+        .scene-item p {
+            font-size: 0.92rem;
+            color: #3d5a72;
+        }
+        .scene-icon {
+            font-size: 1.7rem;
+            margin-bottom: 10px;
+            display: block;
+            opacity: 0.8;
+        }
+
+        /* 常见说明 faq */
+        .faq-item {
+            margin-bottom: 18px;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 550;
+            color: #1b3b57;
+            margin-bottom: 4px;
+        }
+        .faq-item p {
+            margin-left: 10px;
+            color: #3c5b76;
+        }
+
+        .btn-soft {
+            display: inline-block;
+            background: #eef3f8;
+            border: 1px solid #cdd7e1;
+            border-radius: 30px;
+            padding: 8px 28px;
+            font-size: 0.95rem;
+            color: #1f4b6e;
+            text-decoration: none;
+            transition: background 0.15s, border-color 0.15s;
+            margin-top: 8px;
+        }
+        .btn-soft:hover {
+            background: #dde6f0;
+            border-color: #a8bbce;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0 48px;
+            border-top: 1px solid #dee4ec;
+            margin-top: 20px;
+            color: #4e6c86;
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: #2b5f84;
+            text-decoration: none;
+            border-bottom: 1px dotted #a3bbd0;
+        }
+        .footer a:hover {
+            border-bottom-style: solid;
+        }
+
+        @media (max-width: 700px) {
+            .nav-inner { flex-direction: column; gap: 12px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+            .hero h1 { font-size: 1.7rem; }
+            .hero p { font-size: 0.98rem; padding: 12px 18px; }
+            .scenes-grid { grid-template-columns: 1fr; }
+            .card { padding: 24px 18px; }
+        }
+        @media (max-width: 480px) {
+            .hero { padding: 48px 0 32px; }
+            .card h2 { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav-inner">
+            <div class="nav-logo">竞彩指南</div>
+            <ul class="nav-links">
+                <li><a href="#intro">介绍</a></li>
+                <li><a href="#scenes">使用场景</a></li>
+                <li><a href="#faq">常见说明</a></li>
+                <li><a href="#trust">可信依据</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- hero -->
+        <section class="hero" id="intro">
+            <h1>关于竞彩网 · 站点介绍</h1>
+            <p>这是一个围绕体育竞猜信息聚合的辅助平台，提供赛事数据、玩法说明与实用参考。内容保持客观中立，帮助用户更清晰地理解竞彩相关规则与资讯。</p>
+            <span class="hero-tag">信息参考 · 非投注平台</span>
+        </section>
+
+        <!-- 核心介绍卡片 -->
+        <div class="card">
+            <h2>站点定位与可信说明</h2>
+            <p>竞彩网本身并非购彩渠道，而是聚焦于竞彩足球、篮球等体育赛事的信息整理与规则解读。站内数据均来自公开的赛事资料与官方发布的竞彩说明，不含有任何诱导下注或夸大收益的内容。我们注重信息准确性与更新及时性，帮助用户在理性认知的基础上使用相关服务。</p>
+            <p style="margin-top: 14px;">如果你希望直接访问竞彩信息聚合平台，可以通过 <a href="https://cns-jcw.com" style="color:#1c5980; font-weight:500; border-bottom:1px dotted #8aaec9;">竞彩网</a> 获取赛事数据、玩法说明及实用工具。该站点持续优化信息结构，力求简洁清晰。</p>
+        </div>
+
+        <!-- 三个场景模块 -->
+        <h2 style="font-size:1.25rem; font-weight:550; color:#1a3a56; margin: 8px 0 4px;">常见使用场景</h2>
+        <div class="scenes-grid" id="scenes">
+            <div class="scene-item">
+                <span class="scene-icon">📊</span>
+                <h3>赛事数据查阅</h3>
+                <p>快速浏览足球、篮球联赛的近期赛果、积分排名与历史交锋记录，辅助个人分析。</p>
+            </div>
+            <div class="scene-item">
+                <span class="scene-icon">📘</span>
+                <h3>竞彩规则说明</h3>
+                <p>详解不同类型玩法的术语、奖金计算方式与投注限制，降低理解门槛。</p>
+            </div>
+            <div class="scene-item">
+                <span class="scene-icon">🧩</span>
+                <h3>信息聚合参考</h3>
+                <p>整合赔率变化、球队动态与赛前资讯，帮助用户从多个维度进行信息梳理。</p>
+            </div>
+        </div>
+
+        <!-- 常见说明 faq 摘要 -->
+        <div class="card" id="faq">
+            <h2>常见说明 · 摘要</h2>
+            <div class="faq-item">
+                <strong>竞彩网是否直接提供投注服务？</strong>
+                <p>不提供。本站仅做信息展示与规则释义，不接入任何购彩或支付接口，也不代客下单。</p>
+            </div>
+            <div class="faq-item">
+                <strong>数据更新频率如何？</strong>
+                <p>赛事数据通常每日同步更新，重点关注主流联赛及杯赛。部分早期历史数据可能存在延迟，请以官方发布为准。</p>
+            </div>
+            <div class="faq-item">
+                <strong>使用竞彩网需要注册吗？</strong>
+                <p>不需要。所有内容开放浏览，无需注册或登录，也不收集个人隐私信息。</p>
+            </div>
+            <div class="faq-item">
+                <strong>信息准确性能保证吗？</strong>
+                <p>我们尽力从可靠来源整理数据，但无法完全避免疏漏。建议用户结合多个渠道交叉验证，理性参考。</p>
+            </div>
+        </div>
+
+        <!-- 可信依据 + 温和提醒 -->
+        <div class="card" id="trust" style="background: #f9fbfd;">
+            <h2>可信依据与使用提醒</h2>
+            <p>竞彩网的内容编辑遵循客观、克制的原则，不包含“必中”“稳赚”等误导性词汇。页面中引用的所有玩法名称、奖金结构均参照中国体育彩票官方公布的标准。同时我们建议：</p>
+            <ul style="margin-top: 12px;">
+                <li>将本站作为信息辅助工具，而非决策唯一来源。</li>
+                <li>理性看待竞彩，量力而行，不超越个人承受范围。</li>
+                <li>未成年人不得参与任何形式的竞彩活动。</li>
+            </ul>
+            <p style="margin-top: 18px;">如果你希望进一步了解竞彩相关规则或查询最新赛事数据，可以前往 <a href="https://cns-jcw.com" style="color:#1c5980; font-weight:500; border-bottom:1px dotted #8aaec9;">竞彩网</a> 浏览。我们保持内容更新，尽力提供清晰、实用的信息参考。</p>
+            <a href="https://cns-jcw.com" class="btn-soft">竞彩网</a>
+        </div>
+    </main>
+
+    <footer class="footer container">
+        <p>© 2025 竞彩网介绍页 · 内容仅供参考，不构成任何建议。</p>
+        <p style="margin-top: 6px;">数据来源：中国体育彩票官方网站及公开赛事数据。访问 <a href="https://cns-jcw.com">竞彩网</a> 获取更多信息。</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nvstuart87.github.io/cns-jcw-com/sitemap.xml
